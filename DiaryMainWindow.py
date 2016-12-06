@@ -7,6 +7,7 @@ from PyQt5.QtCore import QDateTime
 from PyQt5.QtCore import QTimer
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtGui import QIcon
+from PyQt5.QtGui import QPixmap
 from PyQt5.QtGui import QStandardItem
 from PyQt5.QtGui import QStandardItemModel
 from PyQt5.QtWidgets import QAction, qApp
@@ -25,6 +26,7 @@ from PyQt5.QtWidgets import QSpinBox
 from PyQt5.QtWidgets import QStyle
 from PyQt5.QtWidgets import QSystemTrayIcon
 from PyQt5.QtWidgets import QTextEdit
+from PyQt5.uic.Compiler.qtproxies import QtGui
 
 from Ui_DiaryMainWindow import Ui_MainWindow
 
@@ -42,10 +44,9 @@ class DiaryMainWindow(QMainWindow, Ui_MainWindow):
         """
         super(DiaryMainWindow, self).__init__(parent)
         self.setupUi(self)
-
         self.createActions()
         self.createTrayIcon()
-        self.setIcon(":bad")
+        self.setIcon(":/diary")
         self.trayIcon.setVisible(True)
         self.trayIcon.show()
 

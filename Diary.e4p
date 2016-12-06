@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-5.1.dtd">
+<!-- eric project file for project Diary -->
+<!-- Saved: 2016-12-06, 13:49:47 -->
+<!-- Copyright (C) 2016 eyllanesc, e.yllanescucho@gmail.com -->
+<Project version="5.1">
+  <Language>en_US</Language>
+  <Hash>28cc9852a192ecb47a7936ef6a7f12514ec2e53c</Hash>
+  <ProgLanguage mixed="0">Python3</ProgLanguage>
+  <ProjectType>PyQt5</ProjectType>
+  <Version>0.1</Version>
+  <Author>eyllanesc</Author>
+  <Email>e.yllanescucho@gmail.com</Email>
+  <Eol index="0"/>
+  <Sources>
+    <Source>DiaryMainWindow.py</Source>
+    <Source>Ui_DiaryMainWindow.py</Source>
+    <Source>__init__.py</Source>
+    <Source>main.py</Source>
+    <Source>resource_rc.py</Source>
+  </Sources>
+  <Forms>
+    <Form>DiaryMainWindow.ui</Form>
+  </Forms>
+  <Translations/>
+  <Resources>
+    <Resource>resource.qrc</Resource>
+  </Resources>
+  <Interfaces/>
+  <Others/>
+  <MainScript>main.py</MainScript>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
+    <FiletypeAssociation pattern="*.py" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.py3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.ui" type="FORMS"/>
+  </FiletypeAssociations>
+</Project>

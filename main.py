@@ -17,12 +17,13 @@ def app():
     app.setOrganizationDomain('Diary.com')
     app.setApplicationVersion('0.1')
 
-    if not QSystemTrayIcon.isSystemTrayAvailable():
-        QMessageBox.critical(None, "Systray",
-                                   "I couldn't detect any system tray on this system.")
-        sys.exit(1)
-
-    QApplication.setQuitOnLastWindowClosed(False)
+    #
+    # if not QSystemTrayIcon.isSystemTrayAvailable():
+    #     QMessageBox.critical(None, "Systray",
+    #                                "I couldn't detect any system tray on this system.")
+    #     sys.exit(1)
+    #
+    # QApplication.setQuitOnLastWindowClosed(False)
 
     w = DiaryMainWindow()
     w.show()

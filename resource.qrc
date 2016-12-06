@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file alias="add">images/add.png</file>
         <file alias="edit">images/edit.png</file>
-        <file alias="bad">images/bad.svg</file>
-        <file alias="diary">images/diary.ico</file>
+        <file alias="diary">images/diary.png</file>
     </qresource>
 </RCC>

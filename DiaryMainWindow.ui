@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/diary</normaloff>:/diary</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -51,6 +55,7 @@
    <addaction name="actionNew_Task"/>
    <addaction name="actionEdit_Task"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew_Task">
    <property name="icon">
     <iconset resource="resource.qrc">
