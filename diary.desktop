@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=0.1
+Name=Diary
+GenericName=Diary
+Comment=Diario
+Icon=/home/edwin/Documents/project/agenda.pyqt/img/diary.ico
+TryExec= python /home/edwin/Documents/project/agenda.pyqt/main.py &
+Exec=python /home/edwin/Documents/project/agenda.pyqt/main.py &
+Terminal=False
