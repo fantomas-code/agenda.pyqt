@@ -3,10 +3,7 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication
-from PyQt5.QtWidgets import QMessageBox
-from PyQt5.QtWidgets import QSystemTrayIcon
 
-from DiaryMainWindow import DiaryMainWindow
 
 
 def app():
