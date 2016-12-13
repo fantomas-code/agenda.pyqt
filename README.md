@@ -1,7 +1,5 @@
 # Agenda PyQt
 
-Proyecto colaborativo del grupo PyQt de telegram.
+Proyecto colaborativo del grupo PyQt de telegram  ......  
 
-Proyecto en español.
-
-https://telegram.me/pyqte
+https://telegram.me/joinchat/CKcrRT_zUiroJBFjng-Meg
