@@ -23,6 +23,10 @@ class Principal(QMainWindow):
         self.ui = agenda.Ui_MainWindow()
         self.ui.setupUi(self)
 
+
+
+
+
 # codigo para lanzar aplicacíon
 if __name__ == "__main__":
     # instancia para iniciar una plicacíon
