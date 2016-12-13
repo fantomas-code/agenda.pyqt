@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Agenda</class>
+ <widget class="QMainWindow" name="Agenda">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -14,8 +14,8 @@
    <string>MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resource.qrc">
-    <normaloff>:/diary</normaloff>:/diary</iconset>
+   <iconset resource="../resource.qrc">
+    <normaloff>:/imagenes/icono</normaloff>:/imagenes/icono</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -37,8 +37,6 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionNew_Task"/>
-    <addaction name="actionEdit_Task"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -52,31 +50,11 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionNew_Task"/>
-   <addaction name="actionEdit_Task"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionNew_Task">
-   <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/add</normaloff>:/add</iconset>
-   </property>
-   <property name="text">
-    <string>New Task</string>
-   </property>
-  </action>
-  <action name="actionEdit_Task">
-   <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/edit</normaloff>:/edit</iconset>
-   </property>
-   <property name="text">
-    <string>Edit Task</string>
-   </property>
-  </action>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections/>
 </ui>

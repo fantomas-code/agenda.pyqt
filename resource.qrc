@@ -1,7 +1,5 @@
 <RCC>
-    <qresource prefix="/">
-        <file alias="add">images/add.png</file>
-        <file alias="edit">images/edit.png</file>
-        <file alias="diary">images/diary.png</file>
+    <qresource prefix="/imagenes">
+        <file alias="icono">recursos/imagenes/icono.png</file>
     </qresource>
 </RCC>
