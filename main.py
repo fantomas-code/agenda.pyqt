@@ -4,17 +4,17 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-from Agenda import Agenda
+from ui.agenda import AgendaWin
 
 
 def app():
     app = QApplication(sys.argv)
-    app.setApplicationName('Diary')
-    app.setApplicationDisplayName('Diary')
-    app.setOrganizationName('Diary')
-    app.setOrganizationDomain('Diary.com')
+    app.setApplicationName('Agenda')
+    app.setApplicationDisplayName('Agenda')
+    app.setOrganizationName('Agenda')
+    app.setOrganizationDomain('Agenda.com')
     app.setApplicationVersion('0.1')
-    w = Agenda()
+    w = AgendaWin()
     w.show()
     sys.exit(app.exec_())
 
