@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
 
-
 # Optimizado por sabroso ----
 # Modificado por eyllanesc
 
@@ -13,6 +12,7 @@ class EmailValidator(QtGui.QValidator):
     """
     Validador de correos electrónicos
     """
+
     def __init__(self, parent=None):
         super(EmailValidator, self).__init__(parent=parent)
         self.m_validMailRegExp = QtCore.QRegExp("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b")
@@ -52,62 +52,95 @@ class EmailValidator(QtGui.QValidator):
 
 
 class Login(QtWidgets.QDialog):
-    def __init__(self):
-        super(Login, self).__init__()
-        self.setWindowTitle('Iniciar sesion !!!!')
-        self.setLocale(QtCore.QLocale(QtCore.QLocale.Spanish, QtCore.QLocale.Peru))
-        # self.setWindowIcon(QIcon('img/gato.jpg'))
-        # font = QtGui.QFont()
-        # font.setFamily("NSimSun")
-        # font.setPointSize(18)
-        # font.setItalic(True)
-        # self.setFont(font)
-
+    def __init__(self, parent=None):
+        super(Login, self).__init__(parent, QtCore.Qt.FramelessWindowHint | QtCore.Qt.WindowSystemMenuHint)
         self.grilla = QtWidgets.QVBoxLayout(self)
 
-        self.titulo = QtWidgets.QLabel(self)
-        self.titulo.setFrameShape(QtWidgets.QFrame.Box)
-        self.titulo.setTextFormat(QtCore.Qt.AutoText)
-        self.titulo.setAlignment(QtCore.Qt.AlignCenter)
-        self.titulo.setWordWrap(True)
-        self.titulo.setOpenExternalLinks(True)
+        self.grilla.addItem(QtWidgets.QSpacerItem(20, 40))
 
-        self.grilla.addWidget(self.titulo)
+        self.imagenLB = QtWidgets.QLabel(self)
+        pixmap = QtGui.QPixmap("../recursos/imagenes/icon.png")
+        self.imagenLB.setPixmap(pixmap.scaled(1.1 * pixmap.size()))
+        self.imagenLB.setAlignment(QtCore.Qt.AlignCenter)
+        self.grilla.addWidget(self.imagenLB)
 
-        self.form = QtWidgets.QFormLayout()
-        self.grilla.addLayout(self.form)
+        self.grilla.addItem(QtWidgets.QSpacerItem(20, 40))
 
-        self.correoLB = QtWidgets.QLabel("Correo: ", self)
-        self.correoLE = QtWidgets.QLineEdit(self)
+        self.frame = QtWidgets.QFrame(self)
+        self.frame.setStyleSheet("QWidget{background-color: rgb(255, 211, 78);border-bottom-color: rgb(0, 0, 0);\n"
+                                 "border-top-width: 10px; border-right-width: 10px; border-bottom-width: 10px;\n"
+                                 "border-left-width: 10px;}")
+
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame)
+
+        self.tituloLB = QtWidgets.QLabel("<p><span style=\" font-weight:600;\">Iniciar Sesión</span></p>", self.frame)
+        self.tituloLB.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.tituloLB.setAlignment(QtCore.Qt.AlignCenter)
+        self.verticalLayout.addWidget(self.tituloLB)
+
+        self.formLayout = QtWidgets.QFormLayout()
+
+        self.correoLB = QtWidgets.QLabel(" Correo: ", self.frame)
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.LabelRole, self.correoLB)
+
+        self.correoLE = QtWidgets.QLineEdit(self.frame)
+        self.correoLE.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.formLayout.setWidget(0, QtWidgets.QFormLayout.FieldRole, self.correoLE)
+
+        self.contraseniaLB = QtWidgets.QLabel(" Contraseña: ", self.frame)
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.contraseniaLB)
+
+        self.contraseniaLE = QtWidgets.QLineEdit(self.frame)
+        self.contraseniaLE.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.contraseniaLE)
+
+        self.verticalLayout.addLayout(self.formLayout)
+
+        self.BotonesHorLayout = QtWidgets.QHBoxLayout()
+
+        self.aceptarBtn = QtWidgets.QPushButton("Aceptar", self.frame)
+        self.aceptarBtn.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.aceptarBtn.setEnabled(False)
+
+        self.cancelarBtn = QtWidgets.QPushButton("Cancelar", self.frame)
+        self.cancelarBtn.setStyleSheet("background-color: rgb(255, 255, 255);")
+
+        self.BotonesHorLayout.addWidget(self.aceptarBtn)
+        self.BotonesHorLayout.addWidget(self.cancelarBtn)
+
+        self.verticalLayout.addLayout(self.BotonesHorLayout)
+
+        self.grilla.addWidget(self.frame)
+
         self.correoLE.setValidator(EmailValidator(self.correoLE))
 
-        self.correoLE.textChanged[str].connect(self.habilitarAceptar)
-
-        self.form.addRow(self.correoLB, self.correoLE)
-
-        self.contraseniaLB = QtWidgets.QLabel("Contraseña: ", self)
-        self.contraseniaLE = QtWidgets.QLineEdit(self)
-        self.contraseniaLE.setEchoMode(QtWidgets.QLineEdit.Password)
-
-        self.form.addRow(self.contraseniaLB, self.contraseniaLE)
-        self.titulo.setText("Agenda PyQt ..")
-
-        self.layout_botones = QtWidgets.QHBoxLayout()
-
-        self.aceptarBtn = QtWidgets.QPushButton("Aceptar", self)
-        self.aceptarBtn.setEnabled(False)
-        self.cancelarBtn = QtWidgets.QPushButton("Cancelar", self)
-
-        self.layout_botones.addWidget(self.aceptarBtn)
-        self.layout_botones.addWidget(self.cancelarBtn)
-
-        self.grilla.addLayout(self.layout_botones)
         self.aceptarBtn.clicked.connect(self.accept)
         self.cancelarBtn.clicked.connect(self.reject)
+        self.correoLE.textChanged[str].connect(self.habilitarAceptar)
 
-        self.titulo.setFixedSize(QtCore.QSize(self.size().width(), 60))
+        self.dragPosition = None
+        self.addCustomAction()
 
-        self.setFixedSize(self.sizeHint())
+    def addCustomAction(self):
+        self.setContextMenuPolicy(QtCore.Qt.ActionsContextMenu)
+        self.salirAction = QtWidgets.QAction("Salir", self, icon=QtGui.QIcon("../recursos/imagenes/close"),
+                                             shortcut="Ctrl+Q", triggered=QtWidgets.qApp.quit)
+        self.addAction(self.salirAction)
+        self.acercaAction = QtWidgets.QAction("Acerca de Qt", self, icon=QtGui.QIcon("../recursos/imagenes/qt"),
+                                              shortcut="Ctrl+A",
+                                              triggered=lambda:
+                                              QtWidgets.QMessageBox.aboutQt(None, self.tr("Acerca de Qt")))
+        self.addAction(self.acercaAction)
+
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self.dragPosition = event.globalPos() - self.frameGeometry().topLeft()
+            event.accept()
+
+    def mouseMoveEvent(self, event):
+        if event.buttons() == QtCore.Qt.LeftButton:
+            self.move(event.globalPos() - self.dragPosition)
+            event.accept()
 
     def habilitarAceptar(self, text):
         """"
